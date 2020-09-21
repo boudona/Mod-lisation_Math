@@ -4,6 +4,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#créer C1 pour l'utiliser 
+
+#piste de réflexion : base=np.zeros((100,100,3))
+#                       base[75:,75:,:]=vert
+
+
+
+#==> Ceci interdit
 C1 = plt.imread('C1.png', 'PNG') # import dans un tableau numpy
 C1FlipAbcisse = np.flip((C1),axis=0) 
 
