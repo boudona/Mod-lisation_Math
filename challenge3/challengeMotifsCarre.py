@@ -6,27 +6,29 @@ import numpy as np
 
 #créer C1 pour l'utiliser 
 
-#piste de réflexion : base=np.zeros((100,100,3))
-#                       base[75:,75:,:]=vert
+vert = (0,120,0)
+orange = (255,120,0)
 
-
-
-#==> Ceci interdit
-C1 = plt.imread('C1.png', 'PNG') # import dans un tableau numpy
-C1FlipAbcisse = np.flip((C1),axis=0) 
-
-C2MoitieGauche = np.concatenate((C1,C1FlipAbcisse),axis=0)
-C2MoitieDroite = np.flip((C2MoitieGauche),axis=1)
-C2 = np.concatenate((C2MoitieGauche,C2MoitieDroite),axis=1)
-
-plt.imshow(C2)
+#------------------------
+l, h = (20, 20)
+carorange = orange * np.ones((h, l, 3), dtype = np.uint8)
+carorange[15:, 15:,:] = vert
+plt.imshow(carorange)
 plt.show()
-plt.imsave('C2.png', C2)
+plt.imsave('C1.png', carorange)
 
-C31 = np.concatenate((C2,C2),axis=0)
-C32 = np.concatenate((C31,C31),axis=1)
-C3 = np.concatenate((C32,C31),axis=1)
-
-plt.imshow(C3)
+#------------------------
+l, h = (40, 40)
+carorange = orange * np.ones((h, l,3), dtype = np.uint8)
+carorange[15:25, 15:25,:] = vert
+plt.imshow(carorange)
 plt.show()
-plt.imsave('C3.png', C3)
+plt.imsave('C2.png', carorange)
+
+#------------------------
+carorange2 = np.concatenate((carorange,carorange),axis=0)
+carorange3 = np.concatenate((carorange2,carorange2),axis=1)
+carorangeFini = np.concatenate((carorange3,carorange2),axis=1)
+plt.imshow(carorangeFini)
+plt.show()
+plt.imsave('C3.png', carorangeFini)
