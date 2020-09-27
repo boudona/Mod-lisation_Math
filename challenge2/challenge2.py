@@ -10,15 +10,13 @@ plt.imshow(cheval1)
 plt.show()
 
 
-
-chevaux1 = cheval1[::-1,:,:]
-
-
-plt.imshow(chevaux1)
+#♦----------------Inverse------------------------
+chevalinverse = cheval1[::-1,:,:]
+plt.imshow(chevalinverse)
 plt.show()
 
 
-
+#-----------------les 4 Chevaux-------------------------
 
 chevauxdouble = np.concatenate((cheval1,cheval1),axis=1)
 chevauxdoubleinverse = chevauxdouble[::-1,:,:]
