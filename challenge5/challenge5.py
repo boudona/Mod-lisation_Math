@@ -34,3 +34,60 @@ plt.imsave('lenveloppe.png', lenvel)
 
 
 # --------------------- SEYCHELLES ------------------------------------------
+
+
+bleu = np.array([0, 50, 100], dtype = np.uint8)
+jaune = np.array([240, 255, 60], dtype = np.uint8)
+rouge = np.array([200, 20, 50], dtype = np.uint8)
+vert = np.array([60, 140, 70], dtype = np.uint8)
+blanc = np.array([240, 240, 240], dtype = np.uint8)
+
+
+seychelles = np.zeros((150, 300, 3), dtype = np.uint8)
+
+
+I, J = np.meshgrid(\
+                    np.arange(150, dtype=np.int64),\
+                    np.arange(300, dtype = np.int64),\
+                    indexing = 'ij')
+
+
+seychelles[(I<=150-J*4/3)] = bleu
+seychelles[ (I>=150-J*4/3) & (I<=150-J*2/3)] = jaune
+seychelles[ (I>=150-J*2/3) & (I<=150-J*1/3)] = rouge
+seychelles[ (I>=150-J*1/3) & (I<=150-J*1/6)] = blanc
+seychelles[ (I>=150-J*1/6)] = vert
+
+
+plt.imshow(seychelles)
+plt.show()
+plt.imsave('drapeau_seychelles.png', seychelles)
+
+
+# --------------------- TRINIDAD ET TOBAGO ----------------------------------
+
+
+rouge = np.array([200, 20, 50], dtype = np.uint8)
+blanc = np.array([255, 255, 255], dtype = np.uint8)
+noir = np.array([0, 0, 0], dtype = np.uint8)
+
+
+trinidad = np.zeros((300, 500, 3), dtype = np.uint8)
+
+
+I, J = np.meshgrid(\
+                    np.arange(300, dtype=np.int64),\
+                    np.arange(500, dtype = np.int64),\
+                    indexing = 'ij')
+
+
+trinidad[ I>=J*6/7 ] = rouge # rouge gauche
+trinidad[ I<=J*6/7 ] = blanc # blanc gauche
+trinidad[ I*7/6<=J-25 ] = noir
+trinidad[ I*7/6<=J-125 ] = blanc # blanc droite
+trinidad[ I*7/6<=J-150 ] = rouge # rouge droite
+
+
+plt.imsave('drapeau_trinidad.png', trinidad)
+plt.imshow(trinidad)
+plt.show()
