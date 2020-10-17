@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+ #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 import numpy as np
@@ -72,4 +72,35 @@ donut[ ( (Xrouge*Xrouge+Yrouge*Yrouge) <= (r*r)  ) & ( (Xblanc*Xblanc+Yblanc*Ybl
 
 # affichage
 plt.imshow(donut)
+plt.show()
+
+
+# ------------------ Double Donut ----------------------------------------
+
+# on travaille sur un repère orthonormé (en bas gauche)
+
+
+rouge = np.array([188, 0, 60], dtype = np.uint8)
+blanc = np.array([255, 255, 255], dtype = np.uint8)
+noir = np.array([0,0,0], dtype = np.uint8)
+# Création de l'image avec un fond blanc
+DoubleDonut = np.ones((400, 600, 3), dtype = np.uint8) * 255
+
+
+x = np.linspace(0, 6, 600)
+y = np.linspace(4, 0, 400)
+X, Y  = np.meshgrid(x,y, indexing = 'xy')
+
+
+rG =2
+rP=1
+
+
+DoubleDonut[ ( (X-2)*(X-2)+(Y-2)*(Y-2) > (rP*rP)  ) & ( (X-2)*(X-2)+(Y-2)*(Y-2) < (rG*rG) ), :] = rouge
+DoubleDonut[ ( (X-4)*(X-4)+(Y-2)*(Y-2) > (rP*rP)  ) & ( (X-4)*(X-4)+(Y-2)*(Y-2) < (rG*rG) ), :] = noir
+DoubleDonut[ ( (X-4)*(X-4)+(Y-2)*(Y-2) > (rP*rP)  ) & ( (X-4)*(X-4)+(Y-2)*(Y-2) < (rG*rG) ) & ((X-2)*(X-2)+(Y-2)*(Y-2) > (rP*rP)  ) & ( (X-2)*(X-2)+(Y-2)*(Y-2) < (rG*rG) ) & (Y>2), :] = rouge
+
+
+
+plt.imshow(DoubleDonut)
 plt.show()
