@@ -20,15 +20,15 @@ plt.imsave('C1.png', carorange)
 #------------------------
 # Solution de Paulin
 
-l, h = (40, 40)
-carorange = orange * np.ones((h, l,3), dtype = np.uint8)
-carorange[15:25, 15:25,:] = vert
+#l, h = (40, 40)
+#carorange = orange * np.ones((h, l,3), dtype = np.uint8)
+#carorange[15:25, 15:25,:] = vert
 
 
 # Solution d'Arthur
-#test1 =  np.concatenate((carorange,carorange[:,::-1,:]),axis=1)
-#test2 = np.concatenate((carorange[::-1,:,:],carorange[::-1,::-1,:]),axis=1)
-#carorange = np.concatenate((test1,test2),axis=0)
+test1 =  np.concatenate((carorange,carorange[:,::-1,:]),axis=1)
+test2 = np.concatenate((carorange[::-1,:,:],carorange[::-1,::-1,:]),axis=1)
+carorange = np.concatenate((test1,test2),axis=0)
 
 plt.imshow(carorange)
 plt.show()

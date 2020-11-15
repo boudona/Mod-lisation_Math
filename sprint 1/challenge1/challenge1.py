@@ -20,7 +20,7 @@ plt.imsave('doubleVertical.png', chevaux1)
 
 chevaux2 = np.concatenate((cheval1,cheval2),axis=1) #concatenation à gauche
 plt.imshow(chevaux2)
-plt.show()
+plt.show()a
 plt.imsave('doubleHorizontal.png', chevaux2)
 
 chevaux21 = plt.imread('doubleHorizontal.png', 'PNG') # import dans un tableau numpy
