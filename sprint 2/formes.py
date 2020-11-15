@@ -35,7 +35,7 @@ plot(xMai, yMai,'g')
 
 
 # cercle
-circle = plt.Circle((7,2),1.5, fill=False);
+circle = plt.Circle((7,2),2, fill=False);
 plt.gcf().gca().add_artist(circle)
 
 
